@@ -1,0 +1,1888 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="CSS/Common.css" media="screen" /><link rel="stylesheet" type="text/css" href="CSS/reset.css" media="screen" /><link rel="stylesheet" type="text/css" href="css/mainpage/stylePhongDaotao.css" media="screen" /><link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <script src="Plugin/jQuery/JS/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="JS/MainPage/VI/MasterPage.js" type="text/javascript"></script>
+    <script type="text/javascript" src="JS/AdminCP/VI/Common.js"></script>
+    <script src="Plugin/jQueryUI/jquery-ui.js" type="text/javascript"></script>
+    <link href="Plugin/jQueryUI/jquery-ui.css" rel="stylesheet" type="text/css" />
+ 
+    <script src="JS/CommonFunction.js" type="text/javascript"></script>
+    
+    
+    <script src="JS/MD5.js" type="text/javascript"></script>
+     
+<title>
+
+</title>
+    <style type="text/css">
+        .text-search
+        {
+            text-transform:uppercase;
+            font-weight:bold;
+        }
+        .box-search
+        {
+            border:1px solid red;
+            border: 1px solid;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+        .captcha{
+            float: left;
+            width: 80px !important;
+            margin-top: 2px;
+        }
+    </style> 
+</head>
+<script>
+    $(document).ready(function () {
+
+        var textSearch = 'Nhập nội dung cần tìm';
+        $('#txtSearch').val(textSearch);
+
+
+        $('#txtSearch').css({ 'color': 'rgb(156, 151, 151)' });
+        $('#txtSearch').focus(function () {
+            $(this).val('').css({ 'color': 'black' });
+
+        });
+        $('#txtSearch').blur(function () {
+            if ($(this).val() == '')
+                $(this).val(textSearch).css('color', 'rgb(156, 151, 151)');
+        });
+        $('#btnSearch').click(function () {
+            if ($('#txtSearch').val().length > 0) {
+                var menuID = $('#ctl00_DdListMenu').val();
+
+                if ($('#txtSearch').val() != textSearch)
+                    window.location = 'News.aspx?k=' + $('#txtSearch').val() + '&MenuID=' + menuID;
+                else 
+                    window.location = 'News.aspx?MenuID=' +menuID + '&k=';
+                
+
+            }
+        });
+
+        $("#txtSearch").keypress(function (e) {
+            if (e.keyCode == '13') {
+                if ($('#txtSearch').val().length > 0) {
+                    var menuID = $('#ctl00_DdListMenu').val();
+                    if ($('#txtSearch').val() != textSearch)
+                        window.location = 'News.aspx?k=' + $('#txtSearch').val() + '&MenuID=' + menuID;
+                    else
+                        window.location = 'News.aspx?MenuID=' + menuID + '&k=';
+                }
+                return false;
+            }
+        });
+    });
+              
+</script>
+<body>
+    <form name="aspnetForm" method="post" action="./LichHocLichThiTuan.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzg3NDMwMzYyD2QWAmYPZBYCAgEPZBYGAgEPZBYCZg8QZGQWAQIBZAIFDxBkDxYIZgIBAgICAwIEAgUCBgIHFggQBQpU4bqldCBj4bqjBQItMWcQBRVRdXkgxJHhu4tuaF9RdXkgY2jhur8FAzM3N2cQBRVD4bqpbSBuYW5nIHNpbmggdmnDqm4FAzM2NWcQBRdTaW5oIHZpw6puIGPhuqduIGJp4bq/dAUEMTQyNmcQBTBEw6BuaCBjaG8gdMOibiBzaW5oIHZpw6puIMSQ4bqhaSBo4buNYyBLaMOzYSBEMTkFBDE0NTFnEAULVGjDtG5nIGLDoW8FAzM2OGcQBR1UaGFuaCB0b8OhbiBo4buNYyBwaMOtIE9ubGluZQUDMzg4ZxAFB0zGsHUgw70FBDE0NDRnZGQCBw9kFgRmDxYCHglpbm5lcmh0bWwFSjxzdHlsZT4gLmRpdi1DaGlUaWV0TGljaCB0aHtiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3MGMwICFpbXBvcnRhbnQ7fTwvc3R5bGU+ZAIBDxBkZBYBZmRkylArIy2huCDithTu8lfiax3juWA=" />
+
+
+<script type="text/javascript" src="/ajaxpro/prototype.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/core.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/converter.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/PMT.Web.PhongDaoTao.LichHocLichThiTuan,PMT.Web.PhongDaoTao.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/PMT.Web.PhongDaoTao.UserControl.ucPhieuKhaoSat,PMT.Web.PhongDaoTao.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/UserControl_ucRight,PMT.Web.PhongDaoTao.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/AjaxConfirmImage,PMT.Web.PhongDaoTao.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/AjaxCommon,PMT.Web.PhongDaoTao.ashx"></script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CEFB2603" />
+    
+        <link href="CSS/MainPage/FormDialog.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="JS/LockScreen.js"></script>
+
+        <style type="text/css">
+    
+    
+               #chiTietPhieuKhaoSat input[type=radio]
+            {
+                position:relative;
+                top:1px;
+                }
+                 #chiTietPhieuKhaoSat input[type=checkbox]
+            {
+                position:relative;
+                top:1px;
+                }
+
+
+            #tblPhieuKhaoSat th
+            {
+                font-weight: bold;
+                background-color: rgb(251, 255, 202);
+            }
+            #tblPhieuKhaoSat th, #tblPhieuKhaoSat td
+            {
+                border: 1px solid gray;
+                padding: 5px;
+                line-height: 18px;
+            }
+            #DivFormDialogPhieuKhaoSat .sv-info
+            {
+                padding: 8px;
+                padding-left: 0px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            #DivFormDialogPhieuKhaoSat .sv-info span
+            {
+                font-weight: bold;
+                color: Green;
+            }
+            #DivFormDialogPhieuKhaoSatChiTiet ul
+            {
+                margin: 5px;
+                margin-bottom: 20px;
+            }
+    
+            #DivFormDialogPhieuKhaoSatChiTiet .ul-CauTraLoi
+            {
+               /*  overflow: hidden;*/
+            }
+            .FCauHoi > ul
+            {
+                margin-left: 20px !important;
+            }
+    
+    
+            .li-CauTraLoi
+            {
+                /* float: left;*/
+            }
+        .text-YKien {
+        width: 750px;
+        margin-left: 20px;
+        margin: 6px 0px 6px 20px;
+        }
+            .li-group > .title
+            {
+                cursor: pointer;
+                border-bottom: 3px solid white;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: url('CommonImages/bg_hor.jpg') repeat-y bottom left;
+                line-height: 0.6cm;
+                padding-left: 5px;
+                padding-top: 2px;
+                display: block;
+            }
+    
+            .li-group-c > .title
+            {
+                cursor: pointer;
+                border-bottom: 3px solid white;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: url('CommonImages/bg_hor2.jpg') repeat-y bottom left;
+                line-height: 0.6cm;
+                padding-left: 5px;
+                padding-top: 2px;
+                display: block;
+            }
+            .li-group-c .li-group-c
+            {
+                margin-left: 20px;
+            }
+    
+            #DivFormDialogPhieuKhaoSatChiTiet .li-group > .arrow
+            {
+                background: url('CommonImages/arrow.png') no-repeat;
+                width: 20px;
+                height: 15px;
+                float: left;
+                margin: 4px 0 0 3px;
+            }
+            #DivFormDialogPhieuKhaoSatChiTiet .CauHoi .title
+            {
+                font-weight: bold;
+            }
+            #DivFormDialogPhieuKhaoSatChiTiet .FCauHoi > .title
+            {
+                color: rgb(26, 139, 26);
+                font-weight: bold;
+            }
+    
+            #DivFormDialogPhieuKhaoSatChiTiet .li-group-c > .title
+            {
+                color: Blue;
+                font-weight: bold;
+            }
+            #DivFormDialogPhieuKhaoSatChiTiet .li-group > ul
+            {
+                margin-left: 20px;
+            }
+    
+            #DivFormDialogPhieuKhaoSatChiTiet .ul-CauTraLoi
+            {
+                margin-left: 16px;
+            }
+    
+            #DivFormDialogPhieuKhaoSatChiTiet .MonHoc, #DivFormDialogPhieuKhaoSatChiTiet .GiangVien
+            {
+                font-weight: bold;
+            }
+    
+            .require:after
+            {
+                content: ' (*)';
+                color: Red;
+                font-weight: bold;
+            }
+            .red
+            {
+                color: Red;
+            }
+            .black
+            {
+                color: Black;
+            }
+            .DialogTable
+            {
+                background-color: White;
+            }
+            #DivFormDialogPhieuKhaoSatChiTiet #pksLoiMoDau, #DivFormDialogPhieuKhaoSatChiTiet #pksLoiKetThuc
+            {
+                margin: 10px;
+                line-height: 18px;
+                font-size: 13px;
+            }
+            .radio-css tr
+            {
+                float:left;
+                font-size:13px;
+                }
+        </style>
+
+        <div class="DivDialog" style="width: 900px; display: none; position: fixed" id="DivFormDialogPhieuKhaoSat">
+            <table class='DialogTableTitle' border='0' cellpadding='0' cellspacing='0'><tr><td class='TdDialogTitleLeft'></td><td class='TdDialogTitle'><img src='Resource/Icon/Controls/checked.png' align='absbottom'/>Danh sách phiếu khảo sát<div class='DivCloseButton' onclick='checkClose()'><img src='Resource/Icon/Controls/close.png' align='absbottom'/></div></td><td class='TdDialogTitleRight'></td></tr></table><div class='DivContentDialgog'><table class='DialogTable' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>
+                    <span><i>Sinh viên phải hoàn thành phiếu khảo sát trước khi thao tác các chức năng khác.</i></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sv-info">
+                    <table width="100%">
+                    <tr>
+                    <td style="width:500px"> Sinh viên: <span>
+                            NHỮ TRUNG HẢI
+                            -
+                            23810310247</span></td>
+                    <td>   <span id="ctl00_ucPhieuKhaoSat1_RadioButtonList1" class="radio-css"><input id="ctl00_ucPhieuKhaoSat1_RadioButtonList1_0" type="radio" name="ctl00$ucPhieuKhaoSat1$RadioButtonList1" value="-1" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ucPhieuKhaoSat1$RadioButtonList1$0\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ucPhieuKhaoSat1_RadioButtonList1_0">Tất cả</label><br /><input id="ctl00_ucPhieuKhaoSat1_RadioButtonList1_1" type="radio" name="ctl00$ucPhieuKhaoSat1$RadioButtonList1" value="0" checked="checked" /><label for="ctl00_ucPhieuKhaoSat1_RadioButtonList1_1">Chưa khảo sát</label><br /><input id="ctl00_ucPhieuKhaoSat1_RadioButtonList1_2" type="radio" name="ctl00$ucPhieuKhaoSat1$RadioButtonList1" value="1" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ucPhieuKhaoSat1$RadioButtonList1$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ucPhieuKhaoSat1_RadioButtonList1_2">Đã khảo sát</label></span></td>
+                    <td> <a id="ctl00_ucPhieuKhaoSat1_lbDangXuat" href="javascript:__doPostBack(&#39;ctl00$ucPhieuKhaoSat1$lbDangXuat&#39;,&#39;&#39;)" style="float: right; border: 1px solid gray; padding: 5px; margin-right: -7px;
+                                font-size: 12px;">Đăng xuất</a>
+
+
+                        <a onclick="return checkClose();" id="ctl00_ucPhieuKhaoSat1_lbBoQua" href="javascript:__doPostBack(&#39;ctl00$ucPhieuKhaoSat1$lbBoQua&#39;,&#39;&#39;)" style="float: right; border: 1px solid gray; padding: 5px;  margin-right: -7px;
+                            font-size: 12px;">Bỏ qua</a></td>
+                    </tr>
+                    </table>
+               
+                 
+                    
+                    
+                   
+                    </div>
+                    <div id="divPhieuKhaoSat" style="overflow:auto;height:360px;">
+                    <table id="tblPhieuKhaoSat" border="1" style="border-collapse: collapse; width: 100%">
+                        <tr class='th-title'>
+                            <th>
+                                STT
+                            </th>
+                            <th>
+                                Phiếu khảo sát
+                            </th>
+                            <th>
+                                Đợt
+                            </th>
+                            <th>
+                                Môn học
+                            </th>
+                            <th style="min-width: 70px">
+                                Giảng viên
+                            </th>
+                            <th style="min-width: 50px">
+                                Bắt buộc
+                            </th>
+                            <th style="min-width: 60px">
+                                Trạng thái
+                            </th>
+                        </tr>
+                        
+                          <tr><td colspan="7" align="center" style="font-weight:bold">Không tìm thấy dữ liệu.</td></tr>
+                          
+                    </table>
+                    </div>
+                </td>
+            </tr>
+            </table></div><div class='TdDialogBottom'></div>
+        </div>
+
+        <div class="DivDialog" style="width: 900px; display: none; position: fixed" id="DivFormDialogPhieuKhaoSatChiTiet">
+            <table class='DialogTableTitle' border='0' cellpadding='0' cellspacing='0'><tr><td class='TdDialogTitleLeft'></td><td class='TdDialogTitle'><img src='Resource/Icon/Controls/checked.png' align='absbottom'/>Chi tiết phiếu khảo sát<div class='DivCloseButton' onclick='khaoSat(0,0)'><img src='Resource/Icon/Controls/close.png' align='absbottom'/></div></td><td class='TdDialogTitleRight'></td></tr></table><div class='DivContentDialgog'><table class='DialogTable' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>
+                    <div id="pksTitle" style="font-size: 17px; margin: 10px; color: rgb(228, 69, 29);
+                        font-weight: bold;">
+                    </div>
+                    <div style="margin-left: 10px;" class="info">
+                        Môn học: <span class="MonHoc"></span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Giảng
+                        viên: <span class="GiangVien"></span>
+                    </div>
+                    
+                    <hr />
+                    <div id="chiTietPhieuKhaoSat" style="overflow: auto; max-height: 430px;">
+                    </div>
+                    
+                    <div style="text-align: center; border-top: 1px solid gray;">
+                        <input type="button" onclick="LuuPhieuKhaoSat()" value="Lưu" /></div>
+                </td>
+            </tr>
+            </table></div><div class='TdDialogBottom'></div>
+        </div>
+
+        <script> 
+                    function checkClose() {
+                      ShowFormDialog(false, "DivFormDialogPhieuKhaoSat");
+                      CloseFormDialogPhieuKhaoSatChiTiet();
+                     AjaxPhieuKhaoSat.CheckClose().value;
+                    }
+                    function CloseFormDialogPhieuKhaoSatChiTiet()
+                    {
+                      ShowFormDialog(false, "DivFormDialogPhieuKhaoSatChiTiet");
+                    }
+                   function LoadObjectMoveDialog() {
+                        var MoveDialogPopup = new MoveOjectPopup();
+                        var tds = document.body.getElementsByTagName("td");
+                        for (var i = 0; i < tds.length; i++) {
+                            if (tds[i].className == 'TdDialogTitle') {
+                                if (tds[i].parentNode.parentNode.parentNode.parentNode)
+                                    MoveDialogPopup.Add(tds[i], tds[i].parentNode.parentNode.parentNode.parentNode.id);
+                            }
+                        }
+                    }
+                    LoadObjectMoveDialog();
+            
+                    var minLength=1 ;
+                    var maxLength=500;
+
+          
+
+                    function LuuPhieuKhaoSat()
+                    {
+
+        //           
+                        var ERROR=false;
+                 
+                        $('.CauHoi').each(function(){
+                
+                        var objCauHoi=$(this);
+                         var req=$(this).find('span').hasClass('require');
+                        if($(this).attr('class').endsWith('CH-YKien'))
+                        {
+                    
+                           var textbox=$(this).find('input[type=text]');
+                  
+                            if(req||$.trim($(textbox).val()).length>0)
+                            {
+                            if($.trim($(textbox).val()).length<minLength||$.trim($(textbox).val()).length>maxLength)
+                            {
+                                alert("Câu hỏi: "+$(objCauHoi).find('.title').text()+"\nXin nhập trong giới hạn từ "+minLength+" đến "+maxLength+" ký tự.");
+                                ERROR=true;
+                                return false;
+                            }
+                            }
+                    
+                        }
+
+                        if(ERROR==true)
+                        {
+                        return false;
+                        }
+             
+                        if($(this).attr('class').endsWith('CH-DapAn'))
+                        {
+                           var check=false;
+                           var error=false; 
+                           var radio=0;
+                           if(!req)
+                           {
+                            check=true;
+                           }
+                          $(objCauHoi).find('.ul-CauTraLoi input[type=radio]').each(function()
+                          { 
+                             radio=1;
+                              if($(this).is(':checked'))
+                              {
+                        
+                                check=true;
+                                var textbox=$(this).nextAll('input[type=text]');
+                                if( $(textbox).val()!=undefined)
+                                {
+
+                                     if($.trim($(textbox).val()).length<minLength||$.trim($(textbox).val()).length>maxLength)
+                                    {
+                                        alert("Câu hỏi: "+$(objCauHoi).find('.title').text()+"\nXin nhập trong giới hạn từ "+minLength+" đến "+maxLength+" ký tự.");
+                                        error=true;
+                                        return false;
+                                    }
+                                }
+                              }
+                       
+                          })
+                          if(error==true&&radio==1)
+                          {
+                          ERROR=true;
+                          return false;
+                          }
+
+                          if(check==false&&radio==1)
+                          { 
+                           alert("Câu hỏi: "+$(objCauHoi).find('.title').text()+"\nXin chọn câu trả lời.");
+                           ERROR=true;
+                           return false;
+                          }
+
+
+
+                          $(objCauHoi).find('.ul-CauTraLoi input[type=checkbox]').each(function()
+                          { 
+
+                              if($(this).is(':checked'))
+                              {
+                        
+                                check=true;
+                                var textbox=$(this).nextAll('input[type=text]');
+                                if( $(textbox).val()!=undefined)
+                                {
+
+                                     if($.trim($(textbox).val()).length<minLength||$.trim($(textbox).val()).length>maxLength)
+                                    {
+                                        alert("Câu hỏi: "+$(objCauHoi).find('.title').text()+"\nXin nhập trong giới hạn từ "+minLength+" đến "+maxLength+" ký tự.");
+                                        error=true;
+                                        return false;
+                                    }
+                                }
+                              }
+                       
+                          })
+
+                          if(error==true)
+                          {
+                          ERROR=true;
+                          return false;
+                          }
+
+                          if(check==false)
+                          { 
+                           alert("Câu hỏi: "+$(objCauHoi).find('.title').text()+"\nXin chọn câu trả lời.");
+                           ERROR=true;
+                           return false;
+                          }
+
+
+                  
+                        }
+                        })
+
+               if(ERROR==true)
+               {
+                return;
+               }
+
+                         var phieuKhaoSat=[];
+
+
+                        $('.CauHoi').each(function()
+                        {
+                            var PKS=new Object();
+                            PKS.CauHoiID=$(this).attr('DataID');
+                          //  PKS.YKien=$(this).find('.text-YKien').val();
+
+                            var aTraLoiID=[];
+                            var aYKien=[];
+                            if($(this).attr('class').endsWith('CH-DapAn'))
+                            {
+                                $($(this).find('.ul-CauTraLoi input[type=checkbox],.ul-CauTraLoi input[type=radio]')).each(function()
+                                {
+                        
+                                    if($(this).is(':checked'))
+                                    {
+                                        aTraLoiID.push($(this).val()); 
+                                        var textYKien=$(this).nextAll('.text-YKien');
+                                        if($(textYKien).val()!=undefined)
+                                        {
+                                        aYKien.push($(textYKien).val());
+                                        }
+                                        else
+                                        aYKien.push(null);
+                                      //  aYKien.push($(this).val());
+                                    }
+                                })
+
+        //                          $($(this).find('.ul-CauTraLoi input[type=checkbox]')).each(function()
+        //                        {
+        //                        
+        //                            if($(this).is(':checked'))
+        //                            {
+        //                                aTraLoiID.push($(this).val()); 
+        //                                var textYKien=$(this).nextAll('.text-YKien');
+        //                                if($(textYKien).val()!=undefined)
+        //                                {
+        //                                aYKien.push($(textYKien).val());
+        //                                }
+        //                                else
+        //                                {
+        //                                   aYKien.push(null);
+        //                                }
+        //                              //  aYKien.push($(this).val());
+        //                            }
+        //                          
+        //                        })
+
+
+        //                        aTraLoiID.push(1);
+        //                        aTraLoiID.push(2);
+                               PKS.TraLoiID=aTraLoiID;
+                                PKS.YKien=aYKien;
+                            }
+                            else   
+                            if($(this).attr('class').endsWith('CH-YKien'))
+                            {
+                               aYKien.push($(this).find('.text-YKien').val());
+                              PKS.YKien=aYKien;
+                            }
+
+                           // PKS.TraLoiID=$(this).find('.title').html();
+                            phieuKhaoSat.push(PKS);
+                    
+                        })
+                 
+                         var res=AjaxPhieuKhaoSat.LuuPhieuKhaoSat(dksID,ctdksID,phieuKhaoSat).value;
+                            if(res=="")
+                            {
+                             location.href="LichHocLichThiTuan.aspx";
+        //                        ShowFormDialog(false, "DivFormDialogPhieuKhaoSatChiTiet");
+        //                        $('#DIV_LOCK_SCREEN').attr('style','width: 1349px; height: 1185px;');
+        //                        
+        //                        $('#tblPhieuKhaoSat tr:not(.th-title)').each(function()
+        //                        {
+        //                        
+        //                            var data=$(this).attr('dataPKS');  
+        //                            if(data==dksID+','+ctdksID)
+        //                            {
+        //                                $(this).closest('table').find(this).remove();
+        //                                var i=0;
+        //                                $('#tblPhieuKhaoSat tr:not(.th-title)').each(function(){
+        //                                  i++;
+        //                                    $(this).find('td:eq(0)').html(i);
+        //                                })
+
+        //                            }
+        //                        })
+        //                       
+        //                       var y=0;
+        //                       $('#tblPhieuKhaoSat tr:not(.th-title)').each(function()
+        //                        {
+        //                         y++;
+        //                         });
+        //                        if(y==0)
+        //                        {
+        //                        ShowFormDialog(false, 'DivFormDialogPhieuKhaoSat'); 
+        //                        }
+                            }
+                            else
+                            {
+                                alert(res);
+                            }
+                    }
+
+                    var dksID=0;
+                   var ctdksID=0;
+                    function khaoSat(DKSID,CTDKSID,obj)
+                    {   dksID=0;
+                        ctdksID=0;
+                        if(DKSID==0&&CTDKSID==0)
+                        {
+                            ShowFormDialog(false, "DivFormDialogPhieuKhaoSatChiTiet");
+                            $('#DIV_LOCK_SCREEN').attr('style','width: 1349px; height: 1185px;');
+                        }
+                        else
+                        {
+                             var res= AjaxPhieuKhaoSat.LoadChiTietPhieuKhaoSat(DKSID,CTDKSID).value;
+                             if(res!=null&&res)
+                             {
+                                if(res.Message==null)
+                                {
+                                $('#pksTitle').html(res.TenPhieuKS);
+                                $('#pksLoiMoDau').html(res.LoiMoDau);
+                                $('#pksLoiKetThuc').html(res.LoiKetThuc);
+                                 $('#chiTietPhieuKhaoSat').html(res.NoiDung);
+                                 $('#DivFormDialogPhieuKhaoSatChiTiet .MonHoc').html($(obj).closest('td').nextAll('.MonHoc').html());
+                                 $('#DivFormDialogPhieuKhaoSatChiTiet .GiangVien').html($(obj).closest('td').nextAll('.GiangVien').html());
+                        
+                                 if($.trim($(obj).closest('td').nextAll('.MonHoc').text()).length==0)   
+                                 {
+                                    $('#DivFormDialogPhieuKhaoSatChiTiet .info').css('display','none');
+                                 }
+                                 else
+                                 {
+                                  $('#DivFormDialogPhieuKhaoSatChiTiet .info').css('display','');
+                                 }
+
+
+                                 ShowFormDialog(true, "DivFormDialogPhieuKhaoSatChiTiet");
+                        
+                                  dksID=DKSID;
+                                  ctdksID=CTDKSID;
+                                 // group();
+                                setMaxHeight();
+                                ShowFormDialog(true, "DivFormDialogPhieuKhaoSatChiTiet");
+
+                                 }
+                                 else
+                                 {
+                                 alert(res.Message);
+                                 }
+                             }
+                             else
+                             {
+                                alert('Lỗi ajax!');
+                             }
+                     
+                       }
+                     //window.open('ChiTietPhieuKhaoSat.aspx?DKSID='+DKSID+'&CTDKSID='+CTDKSID);
+                    }
+             
+                     function group()
+                     {
+                     $('#DivFormDialogPhieuKhaoSatChiTiet .li-group > ul,#DivFormDialogPhieuKhaoSatChiTiet .li-group-c > ul,#DivFormDialogPhieuKhaoSatChiTiet .FCauHoi > ul').css('display','none');
+                     }
+                    $(function () 
+                    {  
+                         
+
+                    })
+           
+
+                   function  mesClose()
+                   {
+                    alert("Bạn phải hoàn thành các phiếu khảo sát.");
+                   }
+                 function slideT(obj)
+                 {
+                    $(obj).next('ul').slideToggle();
+                 }
+           
+                    String.prototype.endsWith = function (str) {
+            
+                    var lastIndex = this.lastIndexOf(str);
+                    return (lastIndex != -1) && (lastIndex + str.length == this.length);
+                }
+
+                $(function(){
+                    $('#chiTietPhieuKhaoSat').delegate('.ul-CauTraLoi input[type=radio]','change',function(){
+        //                if($(this).nextAll('input[type=text]').val()!=undefined)
+        //                {
+        //                
+        //                }
+                        $(this).closest('.ul-CauTraLoi').find('.li-CauTraLoi .YKienTraLoi').val('').css('display','none');
+                        $(this).nextAll('.YKienTraLoi').css('display','');
+
+                    }   );
+
+                     $('#chiTietPhieuKhaoSat').delegate('.ul-CauTraLoi input[type=checkbox]','change',function(){
+            
+                               $(this).closest('.ul-CauTraLoi').find(':checkbox').each(function(){
+                                    if($(this).is(':checked'))
+                                    {
+                                      $(this).nextAll('.YKienTraLoi').css('display','');
+                                    }
+                                    else
+                                    {
+                                     $(this).nextAll('.YKienTraLoi').val('').css('display','none');
+                                    }
+                               })
+ 
+
+                    }   );
+            
+            
+                })
+
+                function ShowPKS()
+                {
+                 // ShowFormDialog(true, 'DivFormDialogPhieuKhaoSat'); 
+                  var res= AjaxPhieuKhaoSat.ShowPKS().value;
+                  window.location.href=res;
+                }
+
+        </script>
+
+<script>
+    var dTop = 0;
+    function setMaxHeight() {
+        $('#chiTietPhieuKhaoSat').css('max-height', ($(window).height() - 150) + 'px');
+        var height = $('#DivFormDialogPhieuKhaoSatChiTiet').height();
+        dTop = ($(window).height()/2) - (height / 2);
+    }
+
+    function setMaxHeightDSPhieuKhaoSat() {   
+        $('#divPhieuKhaoSat').css('max-height', ($(window).height()) - 100 + 'px');
+        var height = $('#DivFormDialogPhieuKhaoSat').height();
+        dTop = ($(window).height() / 2) - (height / 2);
+    }
+
+    setMaxHeightDSPhieuKhaoSat();
+</script>
+    <div id="shadow">
+        <div id="main_container">
+            
+
+<link rel="stylesheet" type="text/css" href="Plugin/SuperFish/CSS/superfish.css" media="screen" />
+
+<script type="text/javascript" src="Plugin/SuperFish/JS/hoverIntent.js"></script>
+<script type="text/javascript" src="Plugin/SuperFish/JS/superfish.js"></script>
+<script type="text/javascript">
+
+	// initialise plugins
+	jQuery(function () {
+	    jQuery('ul.sf-menu').superfish();
+	});
+     
+</script>
+
+<div style="padding-top:5px;"></div>
+<div id="middle_box">
+</div>
+<div id="header" class="clearfix">
+    <!--<div id="logo"><a href="home.html"><img src="images/logo.gif" alt="" title="" border="0" /></a></div>-->
+    <div id="menu">
+        <ul class="sf-menu">
+            <li><a href="Default.aspx?MenuID=339" title="Trang chủ">Trang chủ</a></li><li><a href="News.aspx?MenuID=377" title="Quy định_Quy chế">Quy định_Quy chế</a></li><li><a href="News.aspx?MenuID=365" title="Cẩm nang sinh viên">Cẩm nang sinh viên</a></li><li><a href="News.aspx?MenuID=1426" title="Sinh viên cần biết">Sinh viên cần biết</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $('a[href^=http]').attr("target", "_blank"); // liên kết ngoài sẽ đc mở bằng tab mới
+</script>
+                <div class="col-full clearfix">
+                    <div class="col-left">
+                    <div class="box-search">
+                    <span class="text-search">tìm kiếm</span>
+                        
+                     <input type="text" id="txtSearch"  style="width:350px;"/>
+                        <select name="ctl00$DdListMenu" id="ctl00_DdListMenu" style="width:230px;">
+	<option value="-1">Tất cả</option>
+	<option value="377">Quy định_Quy chế</option>
+	<option value="365">Cẩm nang sinh vi&#234;n</option>
+	<option value="1426">Sinh vi&#234;n cần biết</option>
+	<option value="1451">D&#224;nh cho t&#226;n sinh vi&#234;n Đại học Kh&#243;a D19</option>
+	<option value="368">Th&#244;ng b&#225;o</option>
+	<option value="388">Thanh to&#225;n học ph&#237; Online</option>
+	<option value="1444">Lưu &#253;</option>
+
+</select>
+                     <input id="btnSearch" type="button" value="Tìm kiếm" style="float:right" />
+
+                    </div>
+                        
+    <link href="CSS/MainPage/XemDiem.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/MainPage/FormDialog.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="JS/LockScreen.js"></script>
+    <script src="JS/StudentPage/XemDiem.js" type="text/javascript"></script>
+    <script src="JS/DateTimePicker.js" type="text/javascript"></script>
+    <link href="CSS/MainPage/DateTimePicker.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .col-right
+        {
+            display: none;
+        }
+        
+        .col-left
+        {
+            width: 100%;
+        }
+        
+        table.loai-lich tr
+        {
+            float: left;
+        }
+        .div-ChiTietLich table
+        {
+            border-collapse: collapse;
+        }
+        .div-ChiTietLich th
+        {
+            font-weight: bold;
+            border: 1px solid white;
+            text-align: center;
+            padding: 5px;
+            line-height: 17px;
+            color: White;
+        }
+        .div-ChiTietLich td
+        {
+            border: 1px solid rgb(218, 215, 215);
+            padding-right: 3px;
+            position: relative;
+        }
+        
+        .div-ChiTietLich td div
+        {
+            padding: 5px;
+            box-shadow: 3px 3px 10px rgb(131, 131, 131);
+            margin-bottom: 5px;
+            /*text-align: center;*/
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=7,Direction=135,Color='gray')"; /*IE8*/
+        }
+        .div-LichThi
+        {
+            background-color: rgb(255, 253, 216);
+        }
+        .div-LichHoc
+        {
+            background-color: #ddebf7;
+        }
+        .div-ChiTietLich th.current-date
+        {
+            color: Yellow !important;
+            background-color: rgb(83, 128, 115) !important;
+        }
+        .span-label
+        {
+            text-decoration: underline;
+            line-height: 15px;
+        }
+        .span-display-header .span-display
+        {
+            font-weight: bold;
+        }
+        .div-LichHoc hr, .div-LichThi hr
+        {
+            border: 1px gray;
+            border-bottom-style: dashed;
+        }
+        .span-display-header
+        {
+            display: block;
+            text-align: center;
+        }
+        .div-LichHoc.TamNgung
+        {
+            color: #667f96;
+            background-color: #b1d0ec;
+        }
+        /* .div-LichThi.TamNgung
+        {
+            color:rgb(170, 170, 170);
+            background-color:rgb(248, 248, 237);
+        }*/
+        .div-TamNgung
+        {
+            background: url('CommonImages/bg-TamNgung.png') no-repeat;
+            width: 95px;
+            height: 87px;
+            display: block;
+            position: absolute;
+        }
+        .td-button .button
+        {
+            position: relative;
+            top: -2px;
+        }
+        .loai-lich label
+        {
+            padding-right:5px;
+            }
+         .GhiChu
+            {
+                 padding:10px 0px;
+                 float:left;
+                }
+ .GhiChu div {
+float: left;
+height: 15px;
+line-height: 20px;
+min-width: 20px;
+margin-left: 5px;
+font-style: italic;
+}
+ .giothi{
+    float: right;
+    padding: 2px 0px;
+ }
+        .DivContentDialgog
+        {
+            overflow: auto;
+            height: 500px;
+        }
+        .mod .icon
+        {
+            z-index: 1;
+        }
+        .bg-arrow-right
+        {
+            background:url('images/arrow.png') no-repeat;
+            }
+            .bg-arrow-down
+        {
+            background:url('images/arrow.png') no-repeat 0 -15px;
+            }
+        .btnKhaoSatLichThi{
+            margin:45px 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        var countCauHoi = 0;
+        var countCauTraLoi = 0;
+        var textCauHoi = [];
+    </script>
+    <div id="ctl00_ContentPlaceHolder_style"><style> .div-ChiTietLich th{background-color: #0070c0 !important;}</style></div>
+    <div class="main-content">
+        <div class="title-group">
+            XEM LỊCH THEO TUẦN</div>
+        <div style="padding: 10px 0px;">
+            <table border="1" style="width: 100%;">
+                <tr>
+                    <td style="width: 386px;">
+                    </td>
+                    <td style="width: 200px;">
+                        <span id="ctl00_ContentPlaceHolder_rLoaiLich" class="loai-lich" style=""><input id="ctl00_ContentPlaceHolder_rLoaiLich_0" type="radio" name="ctl00$ContentPlaceHolder$rLoaiLich" value="-1" checked="checked" /><label for="ctl00_ContentPlaceHolder_rLoaiLich_0">Tất cả</label><br /><input id="ctl00_ContentPlaceHolder_rLoaiLich_1" type="radio" name="ctl00$ContentPlaceHolder$rLoaiLich" value="true" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder$rLoaiLich$1\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ContentPlaceHolder_rLoaiLich_1">Lịch học</label><br /><input id="ctl00_ContentPlaceHolder_rLoaiLich_2" type="radio" name="ctl00$ContentPlaceHolder$rLoaiLich" value="false" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder$rLoaiLich$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ContentPlaceHolder_rLoaiLich_2">Lịch thi</label></span>
+                    </td>
+                    <td style="padding-top: 4px;" class="td-button">
+                        <input type="submit" name="ctl00$ContentPlaceHolder$btnTruoc" value="&lt; Tuần trước" id="ctl00_ContentPlaceHolder_btnTruoc" class="button" />
+                        <input type="submit" name="ctl00$ContentPlaceHolder$btnHienTai" value="Hiện tại" id="ctl00_ContentPlaceHolder_btnHienTai" class="button" />
+                        <input type="submit" name="ctl00$ContentPlaceHolder$btnSau" value="Tuần sau >" id="ctl00_ContentPlaceHolder_btnSau" class="button" />
+                         
+                        <input type="submit" name="ctl00$ContentPlaceHolder$btnNgayChon" value="Button" id="ctl00_ContentPlaceHolder_btnNgayChon" style="display: none;" />
+                        <span style="float: right; margin-top: -2px; margin-right: 6px;">
+                            <input name="ctl00$ContentPlaceHolder$txtDate" type="text" id="ctl00_ContentPlaceHolder_txtDate" readonly="readonly" class="TextBox" style="width: 70px;
+                                text-align: center;" value="15-05-2025" /><img id="imgNgaySinh" align="absmiddle" alt=""
+                                    src="CommonImages/Calendar.gif" style="cursor: pointer;" /></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="div-ChiTietLich" style="padding-top: 00px">
+            <table style="width: 100%; background-color: White;" border="1">
+                <tr>
+                    <th style="width: 50px;">
+                        Ca học
+                    </th>
+                    <th >
+                        Thứ 2
+                        <br />
+                        12/05/2025
+                    </th>
+                    <th >
+                        Thứ 3
+                        <br />
+                        13/05/2025
+                    </th>
+                    <th >
+                        Thứ 4
+                        <br />
+                        14/05/2025
+                    </th>
+                    <th class="current-date">
+                        Thứ 5
+                        <br />
+                        15/05/2025
+                    </th>
+                    <th >
+                        Thứ 6
+                        <br />
+                        16/05/2025
+                    </th>
+                    <th >
+                        Thứ 7
+                        <br />
+                        17/05/2025
+                    </th>
+                    <th >
+                        Chủ nhật
+                        <br />
+                        18/05/2025
+                    </th>
+                </tr>
+                <tr>
+                    <th style="height: 100px">
+                        SÁNG
+                    </th>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        <div class="div-LichThi"><span class="span-display-header"><span class="span-display">010100451104</span></br><span class="span-display">Tiếng anh chuyên ngành CNPM (TH)</span></span><hr/> </br> <span class="span-label">Giờ thi :</span><span class="span-display">  </span> </br><span class="span-label">Tiết:</span><span class="span-display"> 4-4</span> <span class="span-display giothi"> </span></br><span class="span-label">Nhóm:</span><span class="span-display"> 1</span></br><span class="span-label">Phòng:</span><span class="span-display"> AB101_TH Tin</span></br><span class="span-label">SBD:</span><span class="span-display"> </span></div>
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    <td style="vertical-align: top; width: 130px;">
+                        
+                    </td>
+                    
+                </tr>
+                <tr style="background-color: #EEEEEE">
+                    <th style="height: 100px">
+                        CHIỀU
+                    </th>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        <div class="div-LichThi"><span class="span-display-header"><span class="span-display">010100183004</span></br><span class="span-display">Nguyên lý hệ điều hành (TH)</span></span><hr/> </br> <span class="span-label">Giờ thi :</span><span class="span-display">  </span> </br><span class="span-label">Tiết:</span><span class="span-display"> 7-7</span> <span class="span-display giothi"> </span></br><span class="span-label">Nhóm:</span><span class="span-display"> 1</span></br><span class="span-label">Phòng:</span><span class="span-display"> A107_THTin</span></br><span class="span-label">SBD:</span><span class="span-display"> </span></div>
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        <div class="div-LichThi"><span class="span-display-header"><span class="span-display">010100256304</span></br><span class="span-display">Thiết bị mạng (LT)</span></span><hr/> </br> <span class="span-label">Giờ thi :</span><span class="span-display">  </span> </br><span class="span-label">Tiết:</span><span class="span-display"> 9-10</span> <span class="span-display giothi"> </span></br><span class="span-label">Nhóm:</span><span class="span-display"> 1</span></br><span class="span-label">Phòng:</span><span class="span-display"> A206</span></br><span class="span-label">SBD:</span><span class="span-display"> </span></div>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <th style="height: 100px">
+                        TỐI
+                    </th>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    <td style="vertical-align: top">
+                        
+                    </td>
+                    
+                </tr>
+            </table>
+          
+        </div>
+ 
+          <div class="GhiChu" >
+          <div style="background-color:#ddebf7;border:1px solid gray;"></div> 
+          <div>Lịch học</div>
+          <div style="background-color:rgb(255, 253, 216);border:1px solid gray;"></div>
+          <div>Lịch thi</div>
+          </div>
+          <div style="clear:both;"></div>
+
+        
+    <div class="DivDialog" style="width: 800px; display: none; position: fixed" id="DivFormDialog">
+            <table class='DialogTableTitle' border='0' cellpadding='0' cellspacing='0'><tr><td class='TdDialogTitleLeft'></td><td class='TdDialogTitle'><img src='Resource/Icon/Controls/checked.png' align='absbottom'/><script>document.write(_tieuDePopup);</script><div class='DivCloseButton' onclick='ShowFormDialog(false,"DivFormDialog")'><img src='Resource/Icon/Controls/close.png' align='absbottom'/></div></td><td class='TdDialogTitleRight'></td></tr></table><div class='DivContentDialgog'><table class='DialogTable' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>
+                    <table class="grid grid-color2">
+                        <tr>
+                            <td style="padding: 0">
+                                <h1 class="page-title" style="margin-bottom: 0">
+                                    <span id="spanTieuDePhieuThamDo" style="font-size: 15px; line-height: 30px; font-weight:bold;"></span>
+                                </h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 50%; padding-right: 10px; background: none repeat scroll 0 0 #F8E29F;">
+                                Giảng viên: <span id="divGiangVien" style="padding-left: 10px; font-weight: bold">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 50%; padding-right: 10px; background: none repeat scroll 0 0 #F8E29F;">
+                                Khoa/Trung tâm: <span id="divKhoa" style="padding-left: 10px; font-weight: bold">
+                                </span>
+                                <input type="hidden" id="hidIDLopHocPhan" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tdContent">
+                                <span id="pMoTaPhieuThamDo" style="font-style: italic;line-height:18px">
+                                   
+                                </span>
+                                <hr />
+                                
+                                <div class="group1" onclick="slide('1')"  style="cursor:pointer;border-bottom:3px solid white;font-weight: bold;; text-transform: uppercase; background: url('images/bg_hor.jpg') repeat-y bottom left;
+                                    line-height: 0.6cm; padding-left: 5px;padding-top:2px">
+                                    
+                                    <div class="bg-arrow-right" style="margin:3px 0 0 0px;width:20px;height:15px;float:left;"></div>Khảo sát sinh viên
+                                    </div>
+                                
+                                <script>                                    textCauHoi.push('Câu hỏi 1');</script>
+                                <script>countCauHoi=1;</script>
+                                <div class="divCauHoi1" style="margin: 5px 0 10px 20px;display:block">
+                                    <p class="spanCauHoi">
+                                        1.
+                                        Câu hỏi 1</p>
+                                    
+                                    <div class="divTraLoi" style="margin-left: 10px">
+                                        
+                                        
+                                        <script>countCauTraLoi=1</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 1)" id="chkTraLoi11"
+                                                name="chkCauHoi1" value="52;8"></span>Tốt
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=2</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 1)" id="chkTraLoi12"
+                                                name="chkCauHoi1" value="52;9"></span>Trung bình
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=3</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 1)" id="chkTraLoi13"
+                                                name="chkCauHoi1" value="52;10"></span>Yếu
+                                        </span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <script>                                    textCauHoi.push('Câu hỏi 2');</script>
+                                <script>countCauHoi=2;</script>
+                                <div class="divCauHoi1" style="margin: 5px 0 10px 20px;display:block">
+                                    <p class="spanCauHoi">
+                                        2.
+                                        Câu hỏi 2</p>
+                                    
+                                    <div class="divTraLoi" style="margin-left: 10px">
+                                        
+                                        
+                                        <script>countCauTraLoi=1</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 2)" id="chkTraLoi21"
+                                                name="chkCauHoi2" value="53;8"></span>Tốt
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=2</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 2)" id="chkTraLoi22"
+                                                name="chkCauHoi2" value="53;9"></span>Trung bình
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=3</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 2)" id="chkTraLoi23"
+                                                name="chkCauHoi2" value="53;10"></span>Yếu
+                                        </span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <script>                                    textCauHoi.push('Câu hỏi 3');</script>
+                                <script>countCauHoi=3;</script>
+                                <div class="divCauHoi1" style="margin: 5px 0 10px 20px;display:block">
+                                    <p class="spanCauHoi">
+                                        3.
+                                        Câu hỏi 3</p>
+                                    
+                                    <div class="divTraLoi" style="margin-left: 10px">
+                                        
+                                        
+                                        <script>countCauTraLoi=1</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 3)" id="chkTraLoi31"
+                                                name="chkCauHoi3" value="54;8"></span>Tốt
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=2</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 3)" id="chkTraLoi32"
+                                                name="chkCauHoi3" value="54;9"></span>Trung bình
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=3</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 3)" id="chkTraLoi33"
+                                                name="chkCauHoi3" value="54;10"></span>Yếu
+                                        </span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <script>                                    textCauHoi.push('Câu hỏi 4');</script>
+                                <script>countCauHoi=4;</script>
+                                <div class="divCauHoi1" style="margin: 5px 0 10px 20px;display:block">
+                                    <p class="spanCauHoi">
+                                        4.
+                                        Câu hỏi 4</p>
+                                    
+                                    <div class="divTraLoi" style="margin-left: 10px">
+                                        
+                                        
+                                        <script>countCauTraLoi=1</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 4)" id="chkTraLoi41"
+                                                name="chkCauHoi4" value="55;8"></span>Tốt
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=2</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 4)" id="chkTraLoi42"
+                                                name="chkCauHoi4" value="55;9"></span>Trung bình
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=3</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 4)" id="chkTraLoi43"
+                                                name="chkCauHoi4" value="55;10"></span>Yếu
+                                        </span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <script>                                    textCauHoi.push('Câu hỏi 5');</script>
+                                <script>countCauHoi=5;</script>
+                                <div class="divCauHoi1" style="margin: 5px 0 10px 20px;display:block">
+                                    <p class="spanCauHoi">
+                                        5.
+                                        Câu hỏi 5</p>
+                                    
+                                    <div class="divTraLoi" style="margin-left: 10px">
+                                        
+                                        
+                                        <script>countCauTraLoi=1</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 5)" id="chkTraLoi51"
+                                                name="chkCauHoi5" value="56;8"></span>Tốt
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=2</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 5)" id="chkTraLoi52"
+                                                name="chkCauHoi5" value="56;9"></span>Trung bình
+                                        </span>
+                                        
+                                        
+                                        <script>countCauTraLoi=3</script>
+                                        <span class="spanTraLoi"><span style="padding-right: 5px;">
+                                            <input type="radio" onclick="chkTraLoi_OnClick(this, 5)" id="chkTraLoi53"
+                                                name="chkCauHoi5" value="56;10"></span>Yếu
+                                        </span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                <p class="a-center">
+                                    <input type="button" class="button" onclick="BoPhieu();" value="Hoàn tất đánh giá" /></p>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </table></div><div class='TdDialogBottom'></div>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+            
+        </script>
+
+                    </div>
+                    <div class="col-right">
+                        
+
+<style type="text/css">
+    .style1
+    {
+        height: 23px;
+    }
+    .rd-SinhVien
+    {
+        margin-left: -5px;
+    }
+    .rd-SinhVien label
+    {
+        position: relative;
+        top: -1px;
+    }
+</style>
+
+
+        <div class="mod">
+            <div class="head">
+                <h3>Sinh Viên</h3>
+            </div>
+            <div class="body">
+                <p>
+                    Xin chào<br />
+                    <span id="ctl00_ucRight1_Span2" style="color: #ff0000; font-weight: bold"> NHỮ TRUNG HẢI</span>
+                </p>
+                <p class="a-right">
+                    <a id="ctl00_ucRight1_lbtnLogout" class="button" href="javascript:__doPostBack(&#39;ctl00$ucRight1$lbtnLogout&#39;,&#39;&#39;)">Đăng xuất</a>
+                </p>
+            </div>
+        </div>
+
+    <div class="mod menu-list" id="nhomMenuChucNang">
+        <div class="head">
+            <h3> Chức năng</h3>
+        </div>
+        <div class="body">
+            <ul>
+                
+                            <ul>
+                                
+                                                        <li>
+                                                            <a href="HoSoSinhVien.aspx"> Thông tin sinh viên</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="News.aspx"> Dành cho tân sinh viên Đại học Khóa D19</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="News.aspx"> Quy định_Quy chế SV</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="ThongTinDiemDanh.aspx"> Thông tin điểm danh</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="XemLichHoc.aspx"> Xem lịch học</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="XemLichThi.aspx"> Xem lịch thi</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="LichHocLichThiTuan.aspx"> Xem lịch theo tuần</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="XemDanhSachLopHocPhan.aspx"> Xem danh sách lớp học phần</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="DanhGiaRenLuyen.aspx"> Đánh giá rèn luyện</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="Xemdiem.aspx"> Kết quả học tập</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="https://thanhtoanhocphi.epu.edu.vn/thanh-toan-truc-tuyen.html"> Thanh toán học phí Online</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="XemThongTinHDDT.aspx"> Tra cứu hóa đơn</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="https://thanhtoanhocphi.epu.edu.vn/cong-no-sinh-vien.html"> Tra cứu công nợ</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="https://thanhtoanhocphi.epu.edu.vn/phieu-thu-tong-hop.html"> Danh sách phiếu thu học phí</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="TraCuuCVHTCBL.aspx"> Tra cứu thông tin cố vấn học tập - cán bộ lớp</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="XemThongTinBHYT.aspx"> Thông tin bảo hiểm y tế</a>
+                                                        </li>
+                                
+                                                        <li>
+                                                            <a href="News.aspx?MenuID=1444"> Lưu ý</a>
+                                                        </li>
+                                </ul>
+                
+            </ul>
+        </div>
+    </div>
+
+            <div class="mod menu-list">
+                <div class="head">
+                    <h3>Chức năng trực tuyến</h3>
+                </div>
+                <div class="body">
+                    <ul>
+                        
+                                        <li>
+                                            <a href="https://thanhtoanhocphi.epu.edu.vn/dang-ky-hoc-phan.html"> Đăng ký học phần</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="DangKyHocCaiThien.aspx"> Đăng ký học cải thiện</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="XemChuongTrinhKhung.aspx"> Xem chương trình khung</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="DangKyMoMon.aspx"> Đăng ký nhu cầu</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="https://thanhtoanhocphi.epu.edu.vn/dang-ky-phuc-khao.html"> Phúc khảo bài thi</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="ThongKePhieuKhaoSatRenLuyen.aspx"> Xem thông tin phiếu khảo sát rèn luyện</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="News.aspx"> Dành cho tân sinh viên Đại học Khóa D19</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="News.aspx"> Lưu ý về chứng chỉ tiếng Anh</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="XemDanhSachLopHocPhan.aspx"> Xem danh sách lớp học phần</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="Xemdiem.aspx"> Kết quả học tập</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="https://thanhtoanhocphi.epu.edu.vn/thanh-toan-truc-tuyen.html"> Thanh toán học phí Online</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="https://thanhtoanhocphi.epu.edu.vn/phieu-thu-tong-hop.html"> Danh sách phiếu thu học phí</a>
+                                        </li>
+                        
+                                        <li>
+                                            <a href="News.aspx?MenuID=1444"> Lưu ý</a>
+                                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+    <div class="mod news-list">
+        <div class="head">
+            <h3>Lưu ý</h3>
+        </div>
+
+        <div class="body">
+
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2745" title="Link ảnh Lễ tốt nghiệp trường Đại học Điện lực năm 2022">
+                            Link ảnh Lễ tốt nghiệp trường Đại học Điện lực năm 2022</a><br />
+                        <span class="date">(05-10-2022)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2657" title="Thông báo về kế hoạch giảng dạy từ ngày 01/3/2022">
+                            Thông báo về kế hoạch giảng dạy từ ngày 01/3/2022</a><br />
+                        <span class="date">(28-02-2022)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2630" title="Thông báo "Danh sách sinh viên quá hạn đào tạo"">
+                            Thông báo "Danh sách sinh viên quá hạn đào tạo"</a><br />
+                        <span class="date">(21-12-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2593" title="Liên hệ hỗ trợ trực tuyến">
+                            Liên hệ hỗ trợ trực tuyến</a><br />
+                        <span class="date">(11-10-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2563" title="Thông báo v/v tổ chức đăng ký môn học học kỳ I năm học 2021-2022">
+                            Thông báo v/v tổ chức đăng ký môn học học kỳ I năm học 2021-2022</a><br />
+                        <span class="date">(16-06-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2547" title="Thông báo v/v cài đặt ứng dụng VssID - BHXH số">
+                            Thông báo v/v cài đặt ứng dụng VssID - BHXH số</a><br />
+                        <span class="date">(22-04-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2535" title="V/v buộc thôi học SV vượt quá số lần cảnh báo học tập và nghỉ học dài ngày không lý do">
+                            V/v buộc thôi học SV vượt quá số lần cảnh báo học tập và nghỉ học dài ngày không lý do</a><br />
+                        <span class="date">(17-03-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2529" title="Thông báo v/v nộp học phí ĐKMH tự động HK 2 năm học 2020-2021 đối với Sinh viên ĐHCQ, CĐCQ">
+                            Thông báo v/v nộp học phí ĐKMH tự động HK 2 năm học 2020-2021 đối với Sinh viên ĐHCQ, CĐCQ</a><br />
+                        <span class="date">(03-03-2021)</span></p>
+                    
+                </div>
+                
+                <div class="item">
+                    <p class="title">
+                        <a href="NewsDetail.aspx?NewsID=2512" title="Thông báo tổ chức đăng ký chuyên ngành cho sinh viên D15">
+                            Thông báo tổ chức đăng ký chuyên ngành cho sinh viên D15</a><br />
+                        <span class="date">(05-01-2021)</span></p>
+                    
+                </div>
+                
+        </div>
+
+    </div>
+
+<div class="mod">
+    <div class="head">
+        <h3>Thống kê</h3>
+    </div>
+    <div class="body">
+        <p class="tab">
+            
+            <img src="Resource/Icon/khach.png" alt="" />
+            Đang online: <b>
+                521</b>
+            <br />
+            <img src="Resource/Icon/homnay.png" alt="" />
+            Hôm nay: <b>
+                29845</b>
+            <br />
+            <img src="Resource/Icon/homqua.png" alt="" />
+            Hôm qua: <b>
+                31278</b>
+            <br />
+            <img src="Resource/Icon/tongcong.png" alt="" />
+            Tổng cộng: <b>
+                61587111</b>
+        </p>
+    </div>
+</div>
+
+
+<style>
+    .loading
+    {
+        background-color: Red;
+        width: 80px;
+        height: 80px;
+        background: url('CommonImages/loading.gif');
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left:-40px;
+        margin-top:-40px;
+        z-index: 9999;
+        display:none;
+    }
+     
+</style>
+
+<script>
+    function Check() {        
+        var SercurityCode = $('#ctl00_ucRight1_txtSercurityCode').val();
+        var SercurityCodeValue = $('#txtSecurityCodeValue').val();
+        var MaSV = document.getElementById('ctl00_ucRight1_txtMaSV').value;
+        var MatKhau = document.getElementById('ctl00_ucRight1_txtMatKhau').value;
+        if (trim(MaSV).length == 0) {
+            alert("Mã sinh viên không được trống.");
+            $('#ctl00_ucRight1_txtMaSV').focus();
+            return false;
+        }
+        if (trim(MatKhau).length == 0) {
+            alert("Mật khẩu không được trống.");
+            $('#ctl00_ucRight1_txtMatKhau').focus();
+            return false;
+        }
+        else {
+
+            document.getElementById('ctl00_ucRight1_txtEncodeMatKhau').value = MD5(MatKhau);
+        }
+        if (SercurityCode == '') {
+            alert("Mã bảo vệ chưa nhập.");
+            $('#ctl00_ucRight1_txtSercurityCode').focus();
+            return false;
+        }
+        else
+            if (MD5(SercurityCode) != SercurityCodeValue) {
+                alert("Mã bảo vệ không đúng.");
+                $('#ctl00_ucRight1_txtSercurityCode').focus();
+                LoadConfirmImage();
+                return false;
+            }        
+       EncryptData();
+        return true;
+    }
+
+    function AutoLogin(e) {
+        var objBtnLogin = document.getElementById("ctl00_ucRight1_btnLogin");
+        if (e.keyCode == 13) {
+            objBtnLogin.onclick();
+        }
+    }
+
+    function trim(str) {
+        return str.replace(/ /gi, '');
+    }
+
+    function LoadConfirmImage() {
+
+        var objSecurityImg = document.getElementById("imgSecurityCode");
+        if (objSecurityImg != null) {
+            var arrImageValue = AjaxConfirmImage.CreateConfirmImage().value;
+            if (arrImageValue != null) {
+                if (arrImageValue[0].length > 0) //Success
+                {
+                    objSecurityImg.src = arrImageValue[0];
+                    try {
+                        setTimeout(function () {
+                            AjaxConfirmImage.RemoveConfirmImage(arrImageValue[0]);
+                        }, 5000);
+
+                    } catch (e) { }
+                    document.getElementById("txtSecurityCodeValue").value = arrImageValue[1];
+                }
+                else {
+                    alert(arrImageValue[2]); //Exception
+                }
+            }
+        }
+    }
+
+
+</script>
+
+
+
+
+
+
+<script src="JS/pbkdf2.js"></script>
+<script src="JS/aes.js"></script>
+<script>
+    var _0xa5e2 = ["\x76\x61\x6C", "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64", "\x65\x38\x34\x61\x64\x36\x36\x30\x63\x34\x37\x32\x31\x61\x65\x30\x65\x38\x34\x61\x64\x36\x36\x30\x63\x34\x37\x32\x31\x61\x65\x30", "\x70\x61\x72\x73\x65", "\x48\x65\x78", "\x65\x6E\x63", "\x55\x74\x66\x38", "\x43\x72\x79\x70\x74\x6F\x67\x72\x61\x70\x68\x79\x50\x4D\x54\x2D\x45\x4D\x53", "\x43\x42\x43", "\x6D\x6F\x64\x65", "\x50\x6B\x63\x73\x37", "\x70\x61\x64", "\x65\x6E\x63\x72\x79\x70\x74", "\x41\x45\x53", "\x76\x61\x6C\x75\x65", "\x63\x69\x70\x68\x65\x72\x74\x65\x78\x74", ""]; function EncryptData() { var _0xd2e2x2 = $('#ctl00_ucRight1_txtMatKhau')[_0xa5e2[0]](); var _0xd2e2x3 = document[_0xa5e2[1]]('ctl00_ucRight1_txtMatKhau'); var _0xd2e2x4 = $('#ctl00_ucRight1_txtMaSV')[_0xa5e2[0]](); try { var _0xd2e2x5 = CryptoJS[_0xa5e2[5]][_0xa5e2[4]][_0xa5e2[3]](_0xa5e2[2]); var _0xd2e2x6 = CryptoJS[_0xa5e2[5]][_0xa5e2[6]][_0xa5e2[3]](GetPrivateKey(_0xd2e2x4)); var _0xd2e2x7 = CryptoJS[_0xa5e2[5]][_0xa5e2[6]][_0xa5e2[3]](_0xa5e2[7]); var _0xd2e2x8 = CryptoJS.PBKDF2(_0xd2e2x6.toString(CryptoJS[_0xa5e2[5]].Utf8), _0xd2e2x7, { keySize: 128 / 32, iterations: 1000 }); var _0xd2e2x9 = CryptoJS[_0xa5e2[13]][_0xa5e2[12]](_0xd2e2x2, _0xd2e2x8, { mode: CryptoJS[_0xa5e2[9]][_0xa5e2[8]], iv: _0xd2e2x5, padding: CryptoJS[_0xa5e2[11]][_0xa5e2[10]] }); _0xd2e2x3[_0xa5e2[14]] = _0xd2e2x9[_0xa5e2[15]].toString(CryptoJS[_0xa5e2[5]].Base64); } catch (err) { return _0xa5e2[16] }; } function GetAjaxObj() { return AjaxCommon } function GetPrivateKey(_0xd2e2xc) { var _0xd2e2xd = GetAjaxObj().GetPrivateKey(_0xd2e2xc)[_0xa5e2[14]]; return _0xd2e2xd; }
+</script>
+
+                    </div>
+                </div>
+            <div id="footer">
+                
+
+<div class="copyright">
+    <script>document.write(Footer)</script>
+</div>
+            </div>
+        </div>
+    </div>
+    <!-- shadow -->
+    </form>
+
+    
+    <script type="text/javascript">
+        var dtp = new DateTimePicker();
+        dtp.Add('imgNgaySinh', 'ctl00_ContentPlaceHolder_txtDate');
+
+        $(function () {
+            $('body').delegate('.DTP_TableContent td', 'click', function () {
+                $('#ctl00_ContentPlaceHolder_btnNgayChon').click();
+            });
+        })
+
+        function chkTraLoi_OnClick(objChk, index) {
+                var arrChk = document.getElementsByName("chkCauHoi" + index);
+                document.getElementById("divLyDo" + index).style.display = (objChk.checked && objChk.value.indexOf(";4") != -1) ? "" : "none"; // ;4 : Không chấp nhận
+
+                for (var i = 0; i < arrChk.length; i++) {
+                    if (arrChk[i].checked && arrChk[i].id != objChk.id) {
+                        arrChk[i].checked = false;
+                    }
+                }
+            }
+
+            function GetAjaxObj() {
+                return AjaxLichHocLichThiTuan;
+            }
+
+            function LoadPhieuDanhGia(id, monHoc) {
+                $('#hidIDLopHocPhan').val(id);
+                var res = AjaxLichHocLichThiTuan.GetThongTinPhieu(id, monHoc).value;
+                if (res != null) {
+                    if (res.length == 4) {
+                        if (res[3] == "") {
+                            if (res[1] != "") {
+
+                                $('#spanTieuDePhieuThamDo').html(getTieuDePhieuThamDo(res[0].toUpperCase()));
+
+                                var moTa = getMoTaPhieuThamDo(res[0].toUpperCase(), WebSiteName);
+                                $('#pMoTaPhieuThamDo').html(moTa);
+
+                                $('#divGiangVien').html(res[1]);
+                                $('#divKhoa').html(res[2]);
+                                ShowFormDialog(true, 'DivFormDialog');
+                            }
+                            else {
+                                location.reload(true);
+                            }
+                        }
+                        else {
+                            alert(res[3]);
+                        }
+                    }
+                }
+                else {
+                    alert('Lỗi ajax!');
+                }
+            }
+
+            function BoPhieu() {
+                var flag = false;
+                var flag2 = 0;
+                var mes = "";
+                for (var i = 1; i <= countCauHoi; i++) {
+
+                    if ($('[name="chkCauHoi' + i + '"]').is(':checked') == false) {
+                        //                        flag = true;
+                        alert('Vui lòng trả lời câu hỏi "' + textCauHoi[(i - 1)] + '"');
+                        return;
+                    }
+                    else {
+                        var checkedValue = $('[name="chkCauHoi' + i + '"]:checked').val();
+                        var splitValue = checkedValue.split(';');
+                        if (splitValue.length == 2 && ($.trim(splitValue[1]) == 4 || $.trim(splitValue[1]) == 0)) {
+                        
+
+                                if ($.trim($('#txtLyDo' + i).val()).length == 0 && flag2 == 0) {
+
+                                    //                                flag2 = 1;
+                                    alert('Vui lòng nêu lý do/ý kiến cho câu hỏi "' + textCauHoi[(i - 1)] + '"');
+                                    return;
+                                    //                                mes = "Vui lòng nêu lý do/ý kiến cho câu trả lời số " + i + ".";
+                                }
+                                else if ($.trim($('#txtLyDo' + i).val()).length < 20 && flag2 == 0) {
+                                    alert('Lý do/ý kiến cho câu hỏi "' + textCauHoi[(i - 1)] + '" phải 20 kí tự trở lên.');
+                                    return;
+                                }
+                         
+
+                        }                    
+                    }
+                }
+                var AcauHoi = new Array();
+                var ACauTraLoi = new Array();
+                var ALyDo = new Array();
+                for (var i = 1; i <= countCauHoi; i++) {
+                    var AValue = $('[name="chkCauHoi' + i + '"]:checked').val().split(';');
+                    AcauHoi[i - 1] = AValue[0];
+                    ACauTraLoi[i - 1] = AValue[1];
+                    ALyDo[i - 1] = $('#txtLyDo' + i).val();
+                }
+ 
+                var res = AjaxLichHocLichThiTuan.BoPhieu($('#hidIDLopHocPhan').val(), AcauHoi, ACauTraLoi, ALyDo).value;
+                if (res != null) {
+                    if (res == '') {
+                        ShowFormDialog(false, "DivFormDialog");
+                        location.reload(true);
+                        //                   
+                    }
+                    else {
+                        alert(res);
+                    }
+                }
+                else {
+                    alert('Lỗi ajax!');
+                }
+            }
+            function slide(value) {
+                $('.divCauHoi' + value).slideToggle();
+
+                if ($.trim($('.group' + value + ' div').attr('class')) == 'bg-arrow-right') {
+                    $('.group' + value + ' div').removeClass('bg-arrow-right');
+                    $('.group' + value + ' div').addClass('bg-arrow-down');
+                }
+                else {
+                    $('.group' + value + ' div').removeClass('bg-arrow-down');
+                    $('.group' + value + ' div').addClass('bg-arrow-right');
+                }
+            }
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+          
+            $("ul.MenuTop").superfish({
+                animation: { height: 'show' },   // slide-down effect without fade-in 
+                delay: 1200               // 1.2 second delay on mouseout 
+            });
+            $('a[href^="http"]').attr("target", "_blank");
+        }); 
+ 
+    </script>
+</body>
+
+</html>
