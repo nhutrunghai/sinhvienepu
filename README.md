@@ -75,7 +75,7 @@ Nếu thiếu thư viện, hãy kiểm tra import trong các file Python và cà
 - [ ] Chuẩn hóa cách chạy CLI
 - [ ] Tách module xử lý request và parse dữ liệu
 - [ ] Thêm README hướng dẫn cấu hình chi tiết
-- [ ] Đổi tên repo thành `epu-student-toolkit` để chuyên nghiệp hơn
+- [ ] Thêm ví dụ output đã ẩn thông tin nhạy cảm
 
 ---
 
